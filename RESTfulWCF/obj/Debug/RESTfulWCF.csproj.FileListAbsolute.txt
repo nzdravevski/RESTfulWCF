@@ -1,0 +1,5 @@
+c:\users\nikola\documents\visual studio 2010\Projects\RESTfulWCF\RESTfulWCF\obj\Debug\ResolveAssemblyReference.cache
+c:\users\nikola\documents\visual studio 2010\Projects\RESTfulWCF\RESTfulWCF\bin\RESTfulWCF.dll
+c:\users\nikola\documents\visual studio 2010\Projects\RESTfulWCF\RESTfulWCF\bin\RESTfulWCF.pdb
+c:\users\nikola\documents\visual studio 2010\Projects\RESTfulWCF\RESTfulWCF\obj\Debug\RESTfulWCF.dll
+c:\users\nikola\documents\visual studio 2010\Projects\RESTfulWCF\RESTfulWCF\obj\Debug\RESTfulWCF.pdb
