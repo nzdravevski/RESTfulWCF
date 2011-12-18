@@ -13,7 +13,7 @@ namespace RESTfulWCF
 {
     public class EventOnTheGo : IEventOnTheGo
     {
-        public User PasswordCheck(string password, string username)
+        public User Login(string username, User user)
         {
             SqlConnection connection = new SqlConnection();
             connection.ConnectionString = ConfigurationManager.ConnectionStrings["myConnection"].ConnectionString;
@@ -22,28 +22,28 @@ namespace RESTfulWCF
             command.CommandText = "SELECT * FROM Users WHERE username = @username";
             command.Parameters.AddWithValue("@username", username);
 
-            User user = null;
+            User temp = null;
             try
             {
                 connection.Open();
 
                 SqlDataReader reader = command.ExecuteReader();
 
-                if (reader.Read() && (reader["password"].ToString()) == password)
+                if (reader.Read() && (reader["password"].ToString()) == user.password)
                 {
-                   user = new User
+                   temp = new User
                    {
                        firstName = reader["firstName"].ToString(),
                        lastName = reader["lastName"].ToString(),
                        username = username,
-                       password = password,
+                       password = user.password,
                        email = reader["email"].ToString(),
                        result = true
                    };
                 }
                 else
                 {
-                   user = new User
+                   temp = new User
                    {
                        firstName = null,
                        lastName = null,
@@ -61,7 +61,7 @@ namespace RESTfulWCF
                 connection.Close();
             }
 
-            return user;
+            return temp;
         }
 
         public Result Registration(User user)

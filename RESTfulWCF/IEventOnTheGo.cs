@@ -13,18 +13,19 @@ namespace RESTfulWCF
     {
         [OperationContract]
         [WebInvoke(
-            Method = "GET",
+            Method = "POST",
+            RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Bare,
-            UriTemplate = "checkPassword/{password}/forUsername/{username}")]
-        User PasswordCheck(string password, string username);
+            BodyStyle = WebMessageBodyStyle.WrappedRequest,
+            UriTemplate = "login/{username}")]
+        User Login(string username, User user);
 
         [OperationContract]
         [WebInvoke(
             Method = "POST",
             RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.WrappedRequest,
             UriTemplate = "newRegistration")]
         Result Registration(User user);
     }
