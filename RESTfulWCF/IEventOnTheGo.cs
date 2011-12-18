@@ -24,7 +24,7 @@ namespace RESTfulWCF
             Method = "POST",
             RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Bare,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
             UriTemplate = "newRegistration")]
         Result Registration(User user);
     }
