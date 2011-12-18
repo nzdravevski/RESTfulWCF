@@ -63,5 +63,24 @@ namespace RESTfulWCF
 
             return user;
         }
+
+        public Result Registration(User user)
+        {
+            Result temp = new Result();
+            temp.result = true;
+
+            return temp;
+        }
+
+
+
+
+
+
+
+
+
+
+
     }
 }

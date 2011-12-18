@@ -70,6 +70,7 @@
     </Compile>
     <Compile Include="IEventOnTheGo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Result.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup />

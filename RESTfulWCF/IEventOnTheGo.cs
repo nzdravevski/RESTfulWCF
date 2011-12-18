@@ -18,5 +18,14 @@ namespace RESTfulWCF
             BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "checkPassword/{password}/forUsername/{username}")]
         User PasswordCheck(string password, string username);
+
+        [OperationContract]
+        [WebInvoke(
+            Method = "POST",
+            RequestFormat = WebMessageFormat.Json,
+            ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Bare,
+            UriTemplate = "newRegistration")]
+        Result Registration(User user);
     }
 }
