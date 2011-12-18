@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="Default Web Site/RESTfulWCF_deploy" />
+  <setParameter name="myConnection-Web.config Connection String" value="Data Source=NIKOLA-VAIO\SQLEXPRESS;Initial Catalog=EventOnTheGoDB;Integrated Security=True" />
+</parameters>
