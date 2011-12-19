@@ -29,7 +29,7 @@ namespace RESTfulWCF
 
                 SqlDataReader reader = command.ExecuteReader();
 
-                if (reader.Read() && (reader["password"].ToString()) == user.password)
+                if (reader.Read() && (reader["password"].ToString()) == user.password) 
                 {
                    temp = new User
                    {
@@ -41,7 +41,7 @@ namespace RESTfulWCF
                        result = true
                    };
                 }
-                else
+                else //if database query returns nothing or passwords doesnt match
                 {
                    temp = new User
                    {
