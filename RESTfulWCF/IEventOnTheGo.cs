@@ -28,5 +28,14 @@ namespace RESTfulWCF
             BodyStyle = WebMessageBodyStyle.WrappedRequest,
             UriTemplate = "newRegistration")]
         Result Registration(User user);
+
+        [OperationContract]
+        [WebInvoke(
+            Method = "POST",
+            RequestFormat = WebMessageFormat.Json,
+            ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.WrappedRequest,
+            UriTemplate = "updateUserProfile")]
+        Result UpdateUserProfile(User user);
     }
 }

@@ -90,6 +90,7 @@ namespace RESTfulWCF
                 {
                     result = false
                 };
+                return temp;
             }
             finally
             {
@@ -102,6 +103,48 @@ namespace RESTfulWCF
             };
 
             return temp;
+        }
+
+        public Result UpdateUserProfile(User user)
+        {
+            Result temp = null;
+
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = ConfigurationManager.ConnectionStrings["myConnection"].ConnectionString;
+            SqlCommand command = new SqlCommand();
+            command.Connection = connection;
+            command.CommandText = "UPDATE Users SET firstName = @firstName, lastName = @lastName, password = @password, email = @email WHERE username = @username";
+            command.Parameters.AddWithValue("@firstName", user.firstName);
+            command.Parameters.AddWithValue("@lastName", user.lastName);
+            command.Parameters.AddWithValue("@username", user.username);
+            command.Parameters.AddWithValue("@password", user.password);
+            command.Parameters.AddWithValue("@email", user.email);
+
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                temp = new Result
+                {
+                    result = false
+                };
+                return temp;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            temp = new Result
+            {
+                result = true
+            };
+
+            return temp;
+    
         }
 
 
