@@ -147,6 +147,52 @@ namespace RESTfulWCF
     
         }
 
+        public Result AddEvent(Event myEvent)
+        {
+            Result temp = null;
+
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = ConfigurationManager.ConnectionStrings["myConnection"].ConnectionString;
+            SqlCommand command = new SqlCommand();
+            command.Connection = connection;
+            command.CommandText = "INSERT INTO Events (userID, locationName, locationLat, locationLon, eventName, eventGoal, dateFrom, dateTo) VALUES (@userId, @venueName, @venueLat, @venueLon, @eventName, @eventGoal, @dateFrom, @dateTo)";
+            command.Parameters.AddWithValue("@userId", myEvent.userId);
+            command.Parameters.AddWithValue("@venueName", myEvent.venueName);
+            command.Parameters.AddWithValue("@venueLat", Convert.ToDouble(myEvent.venueLat));
+            command.Parameters.AddWithValue("@venueLon", Convert.ToDouble(myEvent.venueLon));
+            command.Parameters.AddWithValue("@eventName", myEvent.eventName);
+            command.Parameters.AddWithValue("@eventGoal", myEvent.eventGoal);
+            command.Parameters.AddWithValue("@dateFrom", myEvent.dateFrom);
+            command.Parameters.AddWithValue("@dateTo", myEvent.dateTo);
+
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                temp = new Result
+                {
+                    result = false
+                };
+                return temp;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            temp = new Result
+            {
+                result = true
+            };
+
+            return temp;
+        }
+
+
+
 
 
 

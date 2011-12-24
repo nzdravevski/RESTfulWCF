@@ -65,6 +65,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Event.cs" />
     <Compile Include="EventOnTheGo.svc.cs">
       <DependentUpon>EventOnTheGo.svc</DependentUpon>
     </Compile>
