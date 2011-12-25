@@ -8,6 +8,3 @@ C:\RESTfulWCF\RESTfulWCF\bin\RESTfulWCF.pdb
 C:\RESTfulWCF\RESTfulWCF\obj\Debug\ResolveAssemblyReference.cache
 C:\RESTfulWCF\RESTfulWCF\obj\Debug\RESTfulWCF.dll
 C:\RESTfulWCF\RESTfulWCF\obj\Debug\RESTfulWCF.pdb
-C:\RESTfulWCF\RESTfulWCF\bin\Common.Logging.dll
-C:\RESTfulWCF\RESTfulWCF\bin\SharpBrake.dll
-C:\RESTfulWCF\RESTfulWCF\bin\SharpBrake.xml
