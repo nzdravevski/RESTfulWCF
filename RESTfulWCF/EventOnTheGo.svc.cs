@@ -162,16 +162,17 @@ namespace RESTfulWCF
             command.Parameters.AddWithValue("@venueLon", Convert.ToDouble(myEvent.venueLon));
             command.Parameters.AddWithValue("@eventName", myEvent.eventName);
             command.Parameters.AddWithValue("@eventGoal", myEvent.eventGoal);
-            command.Parameters.AddWithValue("@dateFrom", myEvent.dateFrom);
-            command.Parameters.AddWithValue("@dateTo", myEvent.dateTo);
+            command.Parameters.AddWithValue("@dateFrom", Convert.ToDateTime(myEvent.dateFrom));
+            command.Parameters.AddWithValue("@dateTo", Convert.ToDateTime(myEvent.dateTo));
 
             try
             {
                 connection.Open();
                 command.ExecuteNonQuery();
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Console.Write(e.Message + e.Source + e.Data);
                 temp = new Result
                 {
                     result = false
