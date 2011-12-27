@@ -46,5 +46,13 @@ namespace RESTfulWCF
             BodyStyle = WebMessageBodyStyle.WrappedRequest,
             UriTemplate = "addEvent")]
         Result AddEvent(Event myEvent);
+
+        [OperationContract]
+        [WebInvoke(
+            Method = "GET",
+            ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Bare,
+            UriTemplate = "getAllEvents")]
+        Event[] GetAllEvents();
     }
 }

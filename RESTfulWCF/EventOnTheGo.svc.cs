@@ -192,6 +192,50 @@ namespace RESTfulWCF
             return temp;
         }
 
+        public Event[] GetAllEvents()
+        {
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = ConfigurationManager.ConnectionStrings["myConnection"].ConnectionString;
+            SqlCommand command = new SqlCommand();
+            command.Connection = connection;
+            command.CommandText = "SELECT * FROM Events";
+
+            List<Event> allEvents = new List<Event>();
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    allEvents.Add( //userID, locationName, locationLat, locationLon, eventName, eventGoal, dateFrom, dateTo
+                        new Event
+                        {
+                            userId = reader[1].ToString(),
+                            venueName = reader[2].ToString(),
+                            venueLat = Convert.ToDouble(reader[3]),
+                            venueLon = Convert.ToDouble(reader[4]),
+                            eventName = reader[5].ToString(),
+                            eventGoal = reader[6].ToString(),
+                            dateFrom = Convert.ToDateTime(reader[7]),
+                            dateTo = Convert.ToDateTime(reader[8])
+                        });
+                }
+                reader.Close();
+            }
+            catch (Exception e) 
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return allEvents.ToArray();
+        }
+
 
 
 
